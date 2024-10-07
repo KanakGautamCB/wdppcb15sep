@@ -1,0 +1,44 @@
+div{
+    height: 100px;
+    width: 100px;
+    /* child property */
+    /* display: inline-block; */
+}
+
+section{
+    height: 700px;
+    border: 2px solid black;
+
+    /*parent property*/
+    display: flex;
+
+    
+    /* flex-direction: column; */
+
+    
+    /* flex-wrap: wrap; */
+
+    /* main axis property*/
+    justify-content:space-evenly;
+
+    /*cross axis property*/
+    /* align-items:start; */
+
+    align-content: start;
+
+}
+
+
+#three{
+    /* flex-grow: 0; */
+    flex-shrink: 3;
+}
+
+#four{
+    /* flex-grow: 0; */
+    flex-shrink: 1;
+}
+
+#five{
+    align-self: end;
+}

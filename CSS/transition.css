@@ -1,0 +1,19 @@
+.box{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine; 
+    border: 5px solid black;
+    margin: 40px;
+    transition-duration: 2s;
+    transition-property: background-color;
+    transition-delay: 1s;
+
+    
+}
+
+.box:hover{
+    border-radius: 50%;
+    background-color: chocolate;
+    /* transition-duration: 2s; */
+}
+

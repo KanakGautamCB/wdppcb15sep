@@ -1,0 +1,22 @@
+/* rgb */
+body{
+    background-color: rgb(255,0,255);
+}
+
+
+
+
+/* rgba */
+body{
+    background-color: rgba(255,0,255,0);
+}
+
+
+
+
+/* hexadecimal notation */
+body{
+    background-color: #ffccff;
+}
+
+

@@ -1,0 +1,53 @@
+/* element */
+
+
+
+
+
+/* p::before{
+    content:"This before";
+}
+
+p::after{
+    content:"This is after"
+} */
+
+
+/* id */
+/* #para{
+    background-color: black; 
+} */
+
+
+
+
+/* class */
+
+/* .italic{
+    background-color:cornflowerblue;
+}
+
+.blue{
+    background-color: blue;
+} */
+
+/* .red{
+    background-color: red;
+} */
+
+
+
+/* attribute */
+/* a[target="_blank"]{
+    background-color: yellow;
+} */
+
+
+
+
+/* universal */
+/* *{
+    border: 1px solid black;
+    background-color: blue;
+} */
+

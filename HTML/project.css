@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Light background for the entire page */
+}
+
+header {
+    background-color: #6a1b9a; /* Vibrant purple header */
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    margin: 20px;
+    background-color: #ffffff; /* White background for the main content */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for the main content area */
+    box-shadow: 0 4px 8px 6px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+article {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee; /* Separator for articles */
+}
+
+article h2 {
+    color: #333333; /* Dark text for titles */
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #666666; /* Lighter text for the body */
+    line-height: 1.6; /* Improved readability */
+}
+
+footer {
+    background-color: #6a1b9a; /* Matching the header's vibrant purple */
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 0;
+}body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Light background for the entire page */
+}
+
+header {
+    background-color: #6a1b9a; /* Vibrant purple header */
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+header nav ul {
+    list-style: square;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    margin: 20px;
+    background-color: #ffffff; /* White background for the main content */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for the main content area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+article {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee; /* Separator for articles */
+}
+
+article h2 {
+    color: #333333; /* Dark text for titles */
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #666666; /* Lighter text for the body */
+    line-height: 1.6; /* Improved readability */
+}
+
+footer {
+    background-color: #6a1b9a; /* Matching the header's vibrant purple */
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 0;
+}

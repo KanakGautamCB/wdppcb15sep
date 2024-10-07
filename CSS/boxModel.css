@@ -1,0 +1,30 @@
+/* design block element */
+
+div{
+    height:200px;
+    width:200px;
+    background-color: aquamarine;
+    /* padding: 10px; */
+    /* border: 5px solid black; */
+    /* margin: 10px; */
+}
+
+
+
+
+
+
+
+/* design inline element */
+
+span{
+    height: 200px;
+    width:200px;
+    background-color: beige;
+    /* padding: 100px; */
+    /* border: 5px solid black; */
+    /* margin: 100px; */
+    /* display: block; */
+    /* display: inline-block; */
+}
+

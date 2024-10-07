@@ -1,0 +1,33 @@
+.box{
+    background-color: rgb(116, 237, 86);
+    height: 400px;
+    width: 400px;
+    transition-duration: 2s;
+    border: 1px solid black;
+    margin: 40px auto;
+}
+
+.box:hover{
+    /* translate */
+    /* transform: translateX(100px); */
+    /* transform: translateY(100px); */
+    transform: translate(100px, 100px);
+
+    /* rotate */
+    /* transform: rotateX(90deg); */
+    
+    /* transform:rotateY(90deg) ; */
+
+    /* transform: rotate(180deg); */
+
+
+    /* scale */
+    /* transform: scaleX(1.5); */
+    /* transform: scaleY(1.5); */
+    /* transform: scale(1.5, 1.5); */
+
+    /* skew */
+    /* transform: skewX(30deg); */
+    /* transform: skewY(30deg); */
+    /* transform: skew(30deg, -30deg); */
+}
