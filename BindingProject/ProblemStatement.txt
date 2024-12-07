@@ -1,0 +1,14 @@
+Problem Statement:
+Coding Blocks, a coding bootcamp, needs a system to manage their students and teachers. 
+The system should handle common properties and methods for all people at Coding Blocks, 
+as well as specific properties and methods for students and teachers.
+Requirements:
+
+- All people should have common properties like name, email, and joinDate.
+- All people should have a common method to format their join date.
+- Students should have properties for course and batchId, and a method to calculate 
+their course progress.
+- Teachers should have properties for specialization and coursesTeaching, and a method to 
+calculate their teaching load.
+- The system should be easily extensible for new roles in the future (e.g., mentors, admin staff).
+- Memory usage should be optimized, avoiding duplication of methods across instances.
