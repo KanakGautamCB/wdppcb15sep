@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
 
     let entries = JSON.parse(localStorage.getItem('entries'))||[]
+    let clickedEntryIndex =0;
 
     const entryForm = document.getElementById('entryForm');
     const editForm = document.getElementById('editEntryForm');
@@ -11,87 +12,77 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const filterType = document.getElementById('filterType');
     const filterCategory = document.getElementById('filterCategory');
 
-    entryForm.addEventListener('submit',addEntry)
+    entryForm.addEventListener('submit',(event)=>addEntry(event))
 
-    filterType.addEventListener('change',renderEntries)
-    filterCategory.addEventListener('change',renderEntries)
+    filterType.addEventListener('change',()=>{renderEntries()})
+    filterCategory.addEventListener('change',()=>{renderEntries()})
+
+    editForm.addEventListener('submit',(event)=>{
+
+        event.preventDefault()
+        const description = document.querySelector('#editDescription');
+        const amount = document.querySelector('#editAmount');
+        const type = document.querySelector('#editType');
+        const category = document.querySelector('#editCategory');
+        console.log('clicked')
+        entries[clickedEntryIndex]={
+            'description':description.value,
+            'amount':amount.value,
+            'type':type.value,
+            'category':category.value
+        }
+        event.preventDefault()
+        editForm.classList.add('vanish')
+        renderEntries()
+        saveEntries()
+        
+    })
+
+    function saveEntries(){
+        localStorage.setItem('entries',JSON.stringify(entries));
+    }
+
 
     function renderEntries(){
-        entriesTable.innerHTML='';
+        entriesTable.innerHTML=''
+        let totalIncome=0
+        let totalExpense=0
+        let balance=0
 
-        const filterTypeValue = filterType.value
-        const filterCategoryValue = filterCategory.value
-        let totalIncomeElementValue = 0
-        let totalExpensesElementValue = 0
-        let balanceElementValue = 0
-        
         entries.forEach((entry,index)=>{
-            console.log()
-            if((filterTypeValue=='all' || filterTypeValue==entry.type)&&(filterCategoryValue=='all' || filterCategoryValue==entry.category)){
-                const row = entriesTable.insertRow();
-                row.innerHTML=`
+            if((entry.type===filterType.value || filterType.value=='all') && (entry.category===filterCategory.value || filterCategory.value==='all')){
+            let row = entriesTable.insertRow();
+            row.innerHTML=`
                 <td>${entry.description}</td>
                 <td>${entry.amount}</td>
                 <td>${entry.type}</td>
                 <td>${entry.category}</td>
                 <td>
-                    <button class='edit-button'>Edit</button>
-                    <button class='delete-button'>Delete</button>
+                    <button id="edit-btn">edit</button>
+                    <button id="delete-btn">delete</button>
                 </td>
-                `
-                const editButton = row.querySelector('.edit-button');
-                const deleteButton = row.querySelector('.delete-button')
+            `
+            const deleteButton = row.querySelector('#delete-btn');
+            deleteButton.addEventListener('click', ()=>{deleteEntry(index)})
+            let editButton = row.querySelector('#edit-btn');
+            editButton.addEventListener('click',()=>editEntry(index))
 
-                editButton.addEventListener('click',()=>editEntry(index))
-                deleteButton.addEventListener('click',()=>deleteEntry(index))
-
-                if(entry.type=='expense'){
-                    totalExpensesElementValue+=Number(entry.amount)
-                    console.log(totalExpensesElementValue)
-                }
-                if(entry.type=='income'){
-                    totalIncomeElementValue+=Number(entry.amount)
-                    console.log(totalIncomeElementValue)
-                }
+            if(entry.type==='expense'){
+                totalExpense+=Number(entry.amount)
+            }else{
+                totalIncome+=Number(entry.amount)
             }
-        })
-
-        balanceElementValue=totalIncomeElementValue-totalExpensesElementValue
-        totalExpensesElement.textContent=totalExpensesElementValue
-        totalIncomeElement.textContent=totalIncomeElementValue
-        balanceElement.textContent=balanceElementValue
-
-    }
-
-
-    function addEntry(event){
-        event.preventDefault()
-        const description = document.querySelector('#addDescription').value.trim();
-        const amount = document.querySelector('#addAmount').value.trim();
-        const type = document.querySelector('#addType').value.trim();
-        const category = document.querySelector('#addCategory').value.trim();
-
-        if(description && amount && type && category){
-            entries.push({
-                description,
-                amount,
-                type,
-                category
-            })
         }
-        saveEntries()
-        renderEntries()
-        
-
-    }
-
-    function deleteEntry(index){
-        entries.splice(index,1);
-        renderEntries()
-        saveEntries()
+            
+        })
+        balance = totalIncome-totalExpense
+        totalIncomeElement.innerText=totalIncome
+        totalExpensesElement.innerText=totalExpense
+        balanceElement.innerText=balance
     }
 
     function editEntry(index){
+
         editForm.classList.remove('vanish')
         const description = document.querySelector('#editDescription');
         const amount = document.querySelector('#editAmount');
@@ -104,32 +95,36 @@ document.addEventListener('DOMContentLoaded', ()=>{
         amount.value=entries[index].amount
         type.value=entries[index].type
         category.value=entries[index].category
-
-        const editSubmitButton = editForm.querySelector('#edit-submit-button')
-        editSubmitButton.addEventListener('click',(event)=>{
-            console.log('clicked')
-            entries[index]={
-                'description':description.value,
-                'amount':amount.value,
-                'type':type.value,
-                'category':category.value
-            }
-            event.preventDefault()
-            editForm.classList.add('vanish')
-            saveEntries()
-            renderEntries()
-            
-        })
+        clickedEntryIndex=index
         
-
     }
 
-    function saveEntries(){
-        localStorage.setItem('entries',JSON.stringify(entries));
+    function deleteEntry(index){
+        entries.splice(index,1)
+        renderEntries()
+        saveEntries()
     }
 
+    function addEntry(event){
+        event.preventDefault()
+        const description = document.getElementById('addDescription').value.trim()
+        const amount = document.getElementById('addAmount').value.trim()
+        const type = document.getElementById('addType').value
+        const category = document.getElementById('addCategory').value
+        if(description && amount && type && category){
+            entries.push({
+                description,
+                amount,
+                type,
+                category
+            })
+            renderEntries()
+            saveEntries()
+        }
+        console.log(entries)
 
-
+    }
 
     renderEntries()
+   
 })
