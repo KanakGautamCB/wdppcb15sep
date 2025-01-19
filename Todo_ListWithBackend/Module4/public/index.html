@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>TaskMaster</h1>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Add a new task..." required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <div class="filter-buttons">
+            <button id="filter-all" class="active">All</button>
+            <button id="filter-active">Active</button>
+            <button id="filter-completed">Completed</button>
+        </div>
+
+        <ul id="task-list"></ul>
+        
+        <button id="clear-completed">Clear Completed</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
