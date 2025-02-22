@@ -1,0 +1,18 @@
+{
+  "name": "url-shortner",
+  "version": "1.0.0",
+  "description": "This project is a simple URL shortener built using NodeJS, MongoDB, and Mongoose.It includes a backend server with Express.js, a MongoDB database for storing URLs, and a minimal frontend to display and manage shortened URLs.The short IDs are generated using the `nanoid` npm package.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.0",
+    "nanoid": "^5.0.9"
+  }
+}
