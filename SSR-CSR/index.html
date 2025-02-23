@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <ul class="movieList">
+
+    </ul>
+    <script>
+        fetch('/movie-list')
+        .then(res=>{
+            return res.json()
+        })
+        .then(data=>{
+            const movieList = document.querySelector('.movieList');
+            data.forEach(element => {
+                const li = document.createElement('li')
+                li.innerText=element
+                movieList.appendChild(li)
+            });
+        })
+    </script>
+</body>
+</html>
