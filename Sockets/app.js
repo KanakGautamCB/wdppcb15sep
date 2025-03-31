@@ -1,37 +1,31 @@
-const express = require('express')
+const express = require("express");
 const { createServer } = require("http");
-const path = require('path');
+const path = require("path");
 const { Server } = require("socket.io");
-const app = express()
 
-const PORT =4444
-
+const app = express();
+app.use(express.static(path.join(__dirname,'public')));
 const httpServer = createServer(app);
-app.use(express.urlencoded({extended:true}))
-app.use(express.static(path.join(__dirname,'public')))
 const io = new Server(httpServer, { /* options */ });
 
-let userMap ={}
+let userMap={};
 
 io.on("connection", (socket) => {
-  console.log(socket.id)
-  
-  socket.on('newuser',({socketId,name})=>{
-    userMap[socketId]=name
-
-    socket.emit('useradded',{
-        msg:'user added',
-        name:userMap[socketId]
-    })
+  socket.on('newuseradded',({username,socketId})=>{
+      userMap[socketId]=username
+      console.log(username)
+      io.emit('activeusers',{
+        activeUsers:io.engine.clientsCount
+      })
   })
 
-  socket.on('newmessage',({message,socketId})=>{
+  socket.on('newmessage',({message,socketId,username})=>{
     io.emit('messagereceived',{
-        message:message,
-        socketId:socket.id,
-        name:userMap[socket.id]
+      message:message,
+      username:username,
+      socketId:socketId,
     })
   })
 });
 
-httpServer.listen(PORT)
+httpServer.listen(3000);
