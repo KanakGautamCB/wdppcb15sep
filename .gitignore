@@ -12,3 +12,6 @@ react-context-api/node-modules
 react-redux/node-modules
 react-redux-toolkit/node-modules
 Sockets/node-modules
+CapstoneProject/Backend/node-modules
+CapstoneProject/Backend/.env
+CapstoneProject/Backend/src/data
