@@ -1,16 +1,17 @@
 import express from 'express'
+import { getAllReviews, getDeleteReview, getFoodItems, getRestaurantById, getRestaurants, getReview, postAddReview, postAddToCart, postUpdateReview } from '../controllers/user.controller.js';
 
 const router = express.Router()
 
-router.post('/add-review');
-router.post('/update-review/:review-id')
-router.get('/delete-review/:review-id')
-router.get('/get-all-reviews')
-router.get('/get-review/:review-id')
-router.get('/restaurants')
-router.get('/restaurants/:restaurant-id')
-router.get('/get-food-items/:restaurant-id')
-router.post('/add-to-cart')
+router.post('/add-review',postAddReview);
+router.post('/update-review/:reviewId',postUpdateReview)
+router.get('/delete-review/:reviewId',getDeleteReview)
+router.get('/get-all-reviews',getAllReviews)
+router.get('/get-review/:reviewId',getReview)
+router.get('/restaurants',getRestaurants)
+router.get('/restaurants/:restaurantId',getRestaurantById)
+router.get('/get-food-items/:restaurantid',getFoodItems)
+router.post('/add-to-cart',postAddToCart)
 
 
 export default router;

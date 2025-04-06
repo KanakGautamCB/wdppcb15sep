@@ -1,4 +1,4 @@
-import mongoose, {Schema} from 'mongoose'
+import mongoose, {model, Schema} from 'mongoose'
 
 const restaurantSchema = new Schema({
     ownerId:{
@@ -8,12 +8,15 @@ const restaurantSchema = new Schema({
     },
     name:{
         type:String,
-        lowercase:true
+        lowercase:true,
+        unique:true,
+        required:true
     },
     address:{
         type:String,
         lowercase:true,
-        unique:true
+        unique:true,
+        required:true
     },
     email:{
         type:String,
@@ -80,3 +83,5 @@ const restaurantSchema = new Schema({
 },{
     timestamps:true
 })
+
+export default mongoose.model("Restaurant",restaurantSchema)

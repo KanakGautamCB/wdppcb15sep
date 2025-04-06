@@ -73,4 +73,16 @@ userSchema.methods.generateAccessToken = async function (){
     )
 }
 
+userSchema.methods.generateRefreshToken = async function (){
+    return jwt.sign(
+        {
+            userId:this._id,
+        },
+        process.env.REFRESH_TOKEN_KEY
+        ,{
+            expiresIn:process.env.REFRESH_TOKEN_EXPIRY
+        }
+    )
+}
+
 export default mongoose.model("User",userSchema)
