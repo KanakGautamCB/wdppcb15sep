@@ -1,0 +1,14 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    border:1px solid green;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+}
+
+.navbar a,
+.navbar a:visited{
+    text-decoration: none;
+    color:white
+}
